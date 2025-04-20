@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EV Population Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.0/papaparse.min.js"></script>
+</head>
+<body>
+    <header class="dashboard-header">
+        <h1>Electric Vehicle Population Dashboard</h1>
+        <p>Visualizing EV adoption trends in Washington State</p>
+    </header>
+
+    <main class="dashboard-container">
+        <section class="filters">
+            <div class="filter-group">
+                <label for="year-filter">Model Year:</label>
+                <select id="year-filter">
+                    <option value="all">All Years</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="make-filter">Make:</label>
+                <select id="make-filter">
+                    <option value="all">All Makes</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="type-filter">EV Type:</label>
+                <select id="type-filter">
+                    <option value="all">All Types</option>
+                    <option value="BEV">Battery Electric</option>
+                    <option value="PHEV">Plug-in Hybrid</option>
+                </select>
+            </div>
+        </section>
+
+        <section class="metrics">
+            <div class="metric-card">
+                <h3>Total EVs</h3>
+                <p id="total-evs">0</p>
+            </div>
+            <div class="metric-card">
+                <h3>Top Make</h3>
+                <p id="top-make">-</p>
+            </div>
+            <div class="metric-card">
+                <h3>Avg Range</h3>
+                <p id="avg-range">0</p>
+            </div>
+            <div class="metric-card">
+                <h3>Top County</h3>
+                <p id="top-county">-</p>
+            </div>
+        </section>
+
+        <section class="charts">
+            <div class="chart-container">
+                <canvas id="evs-by-year"></canvas>
+            </div>
+            <div class="chart-container">
+                <canvas id="top-makes"></canvas>
+            </div>
+            <div class="chart-container wide">
+                <canvas id="evs-by-county"></canvas>
+            </div>
+            <div class="chart-container">
+                <canvas id="ev-types"></canvas>
+            </div>
+            <div class="chart-container">
+                <canvas id="range-distribution"></canvas>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Data Source: Washington State Department of Licensing</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
